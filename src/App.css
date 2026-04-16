@@ -1,0 +1,229 @@
+:root {
+    --bg-color: #0f172a;
+    --panel-bg: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: #38bdf8;
+    --accent-hover: #0284c7;
+    --node-bg: #334155;
+    --node-moved: #059669;
+    --ring-color: #ef4444;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+header h1 {
+    text-align: center;
+    color: var(--accent);
+    margin-bottom: 2rem;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.panel {
+    background: var(--panel-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.panel h2 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--node-bg);
+    padding-bottom: 0.5rem;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+input {
+    background: var(--bg-color);
+    border: 1px solid var(--node-bg);
+    color: var(--text-main);
+    padding: 0.5rem;
+    border-radius: 6px;
+    width: 100px;
+}
+
+.error {
+    color: #fca5a5;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex: 1;
+}
+
+.btn-next {
+    background: var(--accent);
+    color: #fff;
+}
+
+.btn-next:hover:not(:disabled) {
+    background: var(--accent-hover);
+}
+
+.btn-next:disabled {
+    background: var(--node-bg);
+    cursor: not-allowed;
+}
+
+.btn-reset {
+    background: transparent;
+    border: 1px solid var(--text-muted);
+    color: var(--text-muted);
+}
+
+.btn-reset:hover {
+    background: var(--node-bg);
+    color: white;
+}
+
+/* Complexity Panel */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-box {
+    background: var(--bg-color);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.stat-box span {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+}
+
+.stat-box strong {
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+
+.bar-chart {
+    background: var(--bg-color);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.bar {
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border-radius: 4px;
+    color: white;
+    font-size: 0.875rem;
+    white-space: nowrap;
+}
+
+.ring-bar {
+    background: var(--ring-color);
+}
+
+.mesh-bar {
+    background: var(--node-moved);
+}
+
+.formula-text {
+    font-family: monospace;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+/* Grid Visualization */
+.grid-wrapper {
+    background: var(--panel-bg);
+    padding: 2rem;
+    border-radius: 12px;
+}
+
+.step-indicator {
+    text-align: center;
+    color: var(--accent);
+    margin-bottom: 2rem;
+}
+
+.mesh-grid {
+    display: grid;
+    gap: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.node {
+    background: var(--node-bg);
+    border: 2px solid transparent;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    transition: border-color 0.3s;
+}
+
+.node.moved {
+    border-color: var(--node-moved);
+}
+
+.node-id {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.node-data {
+    font-weight: bold;
+    font-size: 1.25rem;
+    animation: popIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
